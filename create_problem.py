@@ -11,7 +11,7 @@ def create_problem(main_dir: Path, topic: str, problem_id: str, problem_name: st
 
     if not os.path.exists(problem_dir):
         problem_dir.mkdir(parents=True)
-        for file_name in ('solution_1.py', 'explanation.md', 'notes.md'):
+        for file_name in ('solution_1.py', 'test.py', 'explanation.md', 'notes.md'):
             (problem_dir / file_name).touch()
         print("Files were created successfully")
     
