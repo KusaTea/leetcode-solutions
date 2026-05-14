@@ -3,6 +3,20 @@ import os
 from pathlib import Path
 
 
+EXPLANATION_TEMPLATE = '''# Explanation
+
+## Pattern
+
+
+## Idea
+
+
+## Complexity
+- Time: O()
+- Space: O()
+'''
+
+
 def create_problem(main_dir: Path, topic: str, problem_id: str, problem_name: str):
     problem_name = '_'.join(map(str.lower, problem_name.split(' ')))
     problem_name = f"{problem_id:0>3}_{problem_name}"
@@ -11,8 +25,12 @@ def create_problem(main_dir: Path, topic: str, problem_id: str, problem_name: st
 
     if not os.path.exists(problem_dir):
         problem_dir.mkdir(parents=True)
-        for file_name in ('solution_1.py', 'test.py', 'explanation.md', 'notes.md'):
+        for file_name in ('solution_1.py', 'explanation.md', 'notes.md'):
             (problem_dir / file_name).touch()
+
+        with open(problem_dir / 'explanation.md', 'w') as f:
+            f.write(EXPLANATION_TEMPLATE)
+
         print("Files were created successfully")
     
     else:
