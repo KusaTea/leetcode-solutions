@@ -1,0 +1,2 @@
+### solution_1
+I noticed that this task is a combinations of solutions of the task #242 (valid anagram). My first suggestion was to use hashmaps only, however a hashmap cannot be a key in the other hashmap, but a string can. Therefore I decided to sort string and use it in a hashmap.
